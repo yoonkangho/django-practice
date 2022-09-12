@@ -1,0 +1,11 @@
+# Python bytecode cache
+__pycache__/
+
+# VENV
+venv
+
+# PyCharm
+.idea/
+
+# Poetry
+poetry.lock
