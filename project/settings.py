@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "app",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -138,5 +139,14 @@ AUTH_USER_MODEL = "app.User"
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.TokenAuthentication"
-    ]
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+
+# drf-spectacular
+SPECTACULAR_SETTINGS = {
+    "TITLE": "django-practice API",
+    "DESCRIPTION": "django-practice API documentation",
+    "VERSION": "0.0.1",
 }
