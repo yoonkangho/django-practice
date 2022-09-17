@@ -150,3 +150,8 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "django-practice API documentation",
     "VERSION": "0.0.1",
 }
+
+
+# Routing
+APPEND_SLASH = False
+REMOVE_SLASH = True
