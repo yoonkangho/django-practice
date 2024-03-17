@@ -79,7 +79,7 @@ WSGI_APPLICATION = "project.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "project",
         "USER": "postgres",
         "PASSWORD": "password",
@@ -137,9 +137,7 @@ AUTH_USER_MODEL = "app.User"
 
 # Rest Framework Settings
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication"
-    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework.authentication.TokenAuthentication"],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
@@ -150,8 +148,3 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "django-practice API documentation",
     "VERSION": "0.0.1",
 }
-
-
-# Routing
-APPEND_SLASH = False
-REMOVE_SLASH = True

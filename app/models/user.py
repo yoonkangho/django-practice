@@ -1,6 +1,7 @@
 # built-in imports
 
 # third party imports
+from django.contrib.admin import ModelAdmin
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.db import models
@@ -14,12 +15,9 @@ class UserManager(BaseManager, UserManager):
 
 
 class User(BaseModel, AbstractBaseUser, PermissionsMixin):
-
     username_validator = UnicodeUsernameValidator()
 
-    username = models.CharField(
-        max_length=150, unique=True, validators=[username_validator]
-    )
+    username = models.CharField(max_length=150, unique=True, validators=[username_validator])
 
     email = models.EmailField(unique=True)
 
@@ -33,5 +31,11 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
+    search_fields = ("email",)
+
     class Meta:
         abstract = False
+
+
+class UserAdmin(ModelAdmin):
+    search_fields = ("email",)
